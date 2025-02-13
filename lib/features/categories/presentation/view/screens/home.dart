@@ -59,29 +59,8 @@ class CatListWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return isLoading
-        ? Padding(
-            padding: const EdgeInsets.all(18.0),
-            child: const CircularProgressIndicator(),
-          )
-        : Container(
-            margin: const EdgeInsets.only(
-              top: 20,
-            ),
-            width: MediaQuery.of(context).size.width * .9,
-            height: 50,
-            child: ListView.builder(
-              itemCount: list.length,
-              scrollDirection: Axis.horizontal,
-              itemBuilder: (context, index) {
-                return Container(
-                  margin: const EdgeInsets.all(5),
-                  child: Text(
-                    list[index].name ?? "No Name",
-                  ),
-                );
-              },
-            ),
-          );
+    return Scaffold(
+      body: Center(child: Text("ajshdgjas")),
+    );
   }
 }
