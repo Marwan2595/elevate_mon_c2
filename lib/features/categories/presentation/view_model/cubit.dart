@@ -2,7 +2,6 @@ import 'package:elevate_c2_mon/core/api_manager/api_result.dart';
 import 'package:elevate_c2_mon/features/categories/domain/entities/category_entity.dart';
 import 'package:elevate_c2_mon/features/categories/domain/usecase/get_category_usecase.dart';
 import 'package:elevate_c2_mon/features/categories/presentation/view_model/states.dart';
-import 'package:elevate_c2_mon/features/products/domain/usecases/get_products_usecase.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 
@@ -11,13 +10,11 @@ class HomeViewModel extends Cubit<HomeStates> {
   List<CategoryEntity> catLis222t = [];
   HomeViewModel(
     this.getCategoriesUseCase,
-    this.getProductsUseCase,
   ) : super(HomeStates()) {
     getCategories();
     getProducts();
   }
   GetCategoriesUseCase getCategoriesUseCase;
-  GetProductsUseCase getProductsUseCase;
 
   Future<void> getCategories() async {
     emit(state.copyWith(
