@@ -1,6 +1,5 @@
 import 'package:elevate_c2_mon/core/di/di.dart';
 import 'package:elevate_c2_mon/features/categories/domain/entities/category_entity.dart';
-import 'package:elevate_c2_mon/features/categories/domain/usecase/get_category_usecase.dart';
 import 'package:elevate_c2_mon/features/categories/presentation/view_model/cubit.dart';
 import 'package:elevate_c2_mon/features/categories/presentation/view_model/states.dart';
 import 'package:flutter/material.dart';
