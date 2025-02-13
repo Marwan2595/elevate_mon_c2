@@ -77,7 +77,7 @@ class CatListWidget extends StatelessWidget {
                 return Container(
                   margin: const EdgeInsets.all(5),
                   child: Text(
-                    list[index].name ?? "No Name",
+                    list[index].name ?? "Cat Name",
                   ),
                 );
               },
