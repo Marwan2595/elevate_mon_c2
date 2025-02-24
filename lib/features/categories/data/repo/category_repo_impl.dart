@@ -19,7 +19,7 @@ class CategoryRepoImpl implements CategoryRepoContract {
           result.map((e) => e.toEntity()).toList(); // <CategoryEntity>
       return ApiSuccessResult<List<CategoryEntity>>(catList);
     } on DioException catch (e) {
-      return ApiErrorResult<List<CategoryEntity>>(e);
+      return ApiErrorResult<List<CategoryEntity>>("${e.message}");
     }
   }
 }

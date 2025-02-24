@@ -15,6 +15,7 @@ class RemoteDataSourceImpl implements DataSourceContract {
   Future<List<CategoryModel>> getCategories() async {
     final res =
         await apiManager.getData(endpoint: AppConstants.getCategoriesEndpoint);
+         // Response<dynamic>, exp
     final resBody = res.data;
     CategoryResponse categoryResponse =
         CategoryResponse.fromJson(resBody ?? {});

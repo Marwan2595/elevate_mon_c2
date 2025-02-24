@@ -7,5 +7,6 @@ import 'package:injectable/injectable.dart';
 class GetCategoriesUseCase {
   CategoryRepoContract categoryRepo;
   GetCategoriesUseCase({required this.categoryRepo});
-  Future<ApiResult<List<CategoryEntity>>> call() => categoryRepo.getCategories();
+  Future<ApiResult<List<CategoryEntity>>> call() =>
+      categoryRepo.getCategories();
 }

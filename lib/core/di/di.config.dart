@@ -21,8 +21,6 @@ import '../../features/categories/domain/repo/category_repo_contract.dart'
 import '../../features/categories/domain/usecase/get_category_usecase.dart'
     as _i526;
 import '../../features/categories/presentation/view_model/cubit.dart' as _i138;
-import '../../features/products/domain/usecases/get_products_usecase.dart'
-    as _i15;
 import '../api_manager/api_manager.dart' as _i266;
 
 extension GetItInjectableX on _i174.GetIt {
@@ -36,7 +34,6 @@ extension GetItInjectableX on _i174.GetIt {
       environment,
       environmentFilter,
     );
-    gh.factory<_i15.GetProductsUseCase>(() => _i15.GetProductsUseCase());
     gh.singleton<_i266.ApiManager>(() => _i266.ApiManager());
     gh.singleton<_i596.DataSourceContract>(
         () => _i1034.RemoteDataSourceImpl(gh<_i266.ApiManager>()));
@@ -44,10 +41,8 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i782.CategoryRepoImpl(gh<_i596.DataSourceContract>()));
     gh.factory<_i526.GetCategoriesUseCase>(() => _i526.GetCategoriesUseCase(
         categoryRepo: gh<_i450.CategoryRepoContract>()));
-    gh.factory<_i138.HomeViewModel>(() => _i138.HomeViewModel(
-          gh<_i526.GetCategoriesUseCase>(),
-          gh<_i15.GetProductsUseCase>(),
-        ));
+    gh.factory<_i138.HomeViewModel>(
+        () => _i138.HomeViewModel(gh<_i526.GetCategoriesUseCase>()));
     return this;
   }
 }

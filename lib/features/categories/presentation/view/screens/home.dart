@@ -1,7 +1,11 @@
+import 'dart:io';
+
 import 'package:elevate_c2_mon/core/di/di.dart';
 import 'package:elevate_c2_mon/features/categories/domain/entities/category_entity.dart';
 import 'package:elevate_c2_mon/features/categories/presentation/view_model/cubit.dart';
 import 'package:elevate_c2_mon/features/categories/presentation/view_model/states.dart';
+import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -13,6 +17,10 @@ class HomeScreen extends StatelessWidget {
     return BlocProvider<HomeViewModel>(
       create: (context) => viewModel,
       child: Scaffold(
+        appBar: AppBar(
+          title: const Text("Categories"),
+          centerTitle: Platform.isAndroid ? false : true,
+        ),
         body: Center(child:
             BlocBuilder<HomeViewModel, HomeStates>(builder: (context, state) {
           // switch (state) {
@@ -26,7 +34,9 @@ class HomeScreen extends StatelessWidget {
           // }
 
           if (state.error != null) return Text(state.error!);
-
+          Platform.isIOS
+              ? CupertinoActivityIndicator()
+              : CircularProgressIndicator();
           return Column(
             children: [
               const SizedBox(height: 100),
